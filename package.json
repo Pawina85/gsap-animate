@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "nextjs-gsap",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
-    "start": "next start"
-=======
   "name": "gsap-animate",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
->>>>>>> origin/main
   },
   "dependencies": {
     "react": "19.2.0",
@@ -24,18 +14,9 @@
     "next": "16.0.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
-=======
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "16.0.0"
->>>>>>> origin/main
   }
 }
