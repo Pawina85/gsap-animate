@@ -10,24 +10,18 @@ export default function Navbar() {
     const navRef = useRef(null);
 
     useEffect(() => {
-        const navTween = gsap.timeline({
+        gsap.to(navRef.current, {
+            backgroundColor: '#F9F9F6#F8FAF6',
+            backdropFilter: 'blur(10px)',
+            duration: 0.3,
+            ease: 'power2.out',
             scrollTrigger: {
-                trigger: navRef.current,
-                start: 'top top',
-                scrub: true
-            },
-        });
-
-        navTween.fromTo(
-            navRef.current,
-            { backgroundColor: 'rgba(248, 249, 250, 0.8)' },
-            {
-                backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                backdropFilter: 'blur(10px)',
-                duration: 1,
-                ease: 'power1.inOut',
+                trigger: 'body',
+                start: 'top -50px',
+                end: 'top -51px',
+                toggleActions: 'play none none reverse'
             }
-        );
+        });
 
         // Cleanup function
         return () => {
@@ -38,13 +32,14 @@ export default function Navbar() {
         <nav ref={navRef} style={{
             width: '100%',
             padding: '1rem',
-            backgroundColor: '#f8f9fa',
+            backgroundColor: 'transparent',
             position: 'fixed',
             top: 0,
             zIndex: 1000,
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center'
+            alignItems: 'center',
+            transition: 'background-color 0.3s ease'
         }}>            
         <div className="nav-logo">
         <a href="home" style={{
