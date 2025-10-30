@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 export default function Hero() {
     return (
         <section id="hero" className ="noisy">
-            <h1>Grow Calm Live Green</h1>
+            <h1>Grow Calm <br />Live Green</h1>
             <img
 		 src="/images/pic3.png"
 		 alt="left-leaf"

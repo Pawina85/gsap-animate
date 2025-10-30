@@ -24,13 +24,14 @@ body {
 }
 
 #hero h1 {
-    font-size: 4rem;
+    font-size: 5rem ;
     font-weight: bold;
     text-align: center;
     color: #2d5a27;
     margin: 0;
     z-index: 10;
     position: relative;
+    line-height: 1.1;
 }
 
 @media (min-width: 768px) {
@@ -79,6 +80,91 @@ body {
         top: auto;
         width: 300px;
     }
+}
+
+/* Gallery section */
+#gallery {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 4rem 2rem;
+}
+
+#gallery h1 {
+    font-size: 3rem !important;
+    font-weight: bold;
+    text-align: center;
+    color: #2d5a27;
+    margin: 0 0 3rem 0;
+    z-index: 10;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    #gallery h1 {
+        font-size: 6rem !important;
+        margin-bottom: 4rem;
+    }
+}
+
+/* Gallery grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+}
+
+/* Plant cards */
+.plant-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.plant-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.plant-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.plant-info h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2d5a27;
+    margin: 0 0 0.5rem 0;
+}
+
+.plant-info .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4a7c59;
+    margin: 0 0 1rem 0;
+}
+
+.plant-info .description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
 }
 
 /* Noise background */
