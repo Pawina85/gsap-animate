@@ -9,7 +9,7 @@ export default function Hero() {
             </div>
             <div className="hero-image">
                 <img
-                    src="/images/pic1.png"
+                    src="/images/About.png"
                     alt="Plant decoration"
                     className="left-leaf"
                 />
