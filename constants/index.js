@@ -42,6 +42,12 @@ const gallerylist = [
         image: "/images/MoneyPlant.png",
         description: "Symbol of good fortune and a refreshing indoor accent."
     },
+    {
+        name: "Bird’s Nest Fern",
+        price: "$38",
+        image: "/images/BirdsNestFern.png",
+        description: "Lush wavy leaves that bring soft, tropical energy to any corner — thrives in indirect light."
+    }
 ];
 
 export { navLinks, gallerylist };

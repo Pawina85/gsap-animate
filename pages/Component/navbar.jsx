@@ -32,7 +32,7 @@ export default function Navbar() {
         <nav ref={navRef} style={{
             width: '100%',
             padding: '1rem',
-            backgroundColor: 'transparent',
+            backgroundColor: '#f8f9fa',
             position: 'fixed',
             top: 0,
             zIndex: 1000,
