@@ -92,11 +92,12 @@ export default function Hero() {
         <section 
             ref={heroRef}
             style={{
-                minHeight: '100vh',
+                minHeight: '80vh',
                 backgroundColor: 'white',
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
+                display: 'flex',
+                flexDirection: 'row',
                 alignItems: 'center',
+                justifyContent: 'center',
                 padding: '2rem',
                 gap: '2rem',
                 position: 'relative',
@@ -108,7 +109,13 @@ export default function Hero() {
                 ref={titleRef}
                 style={{
                     zIndex: 2,
-                    padding: '2rem'
+                    padding: '1rem',
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'center'
                 }}
             >
                 <h1 style={{
@@ -172,8 +179,9 @@ export default function Hero() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                padding: '2rem',
-                zIndex: 2
+                padding: '1rem',
+                zIndex: 2,
+                flex: 1
             }}>
                 <img
                     ref={imageRef}
@@ -195,19 +203,11 @@ export default function Hero() {
             <style jsx>{`
                 @media (max-width: 768px) {
                     section {
-                        grid-template-columns: 1fr !important;
+                        flex-direction: column !important;
                         text-align: center;
                         padding: 1rem !important;
                         min-height: auto !important;
-                    }
-                    
-                    div:first-child {
-                        order: 2;
-                    }
-                    
-                    div:last-child {
-                        order: 1;
-                        margin-bottom: 2rem;
+                        gap: 1rem !important;
                     }
                 }
                 
