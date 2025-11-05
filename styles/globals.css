@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* Base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Hero section - Clean & Minimal */
+#hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+/* Hero content */
+.hero-content {
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #2d5a27;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+/* Hero image */
+.hero-image {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image .left-leaf {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        min-height: 100vh;
+    }
+    
+    .hero-content {
+        order: 2;
+        padding: 2rem 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    
+    .hero-image {
+        order: 1;
+        height: 60vh;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-content h1 {
+        font-size: 5rem;
+    }
+}
+
+
+
+/* Gallery section */
+#gallery {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 4rem 2rem;
+}
+
+#gallery h1 {
+    font-size: 3rem !important;
+    font-weight: bold;
+    text-align: center;
+    color: #2d5a27;
+    margin: 0 0 3rem 0;
+    z-index: 10;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    #gallery h1 {
+        font-size: 6rem !important;
+        margin-bottom: 4rem;
+    }
+}
+
+/* Gallery grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+}
+
+/* Plant cards */
+.plant-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.plant-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.plant-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.plant-info h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2d5a27;
+    margin: 0 0 0.5rem 0;
+}
+
+.plant-info .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4a7c59;
+    margin: 0 0 1rem 0;
+}
+
+.plant-info .description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Noise background */
+.noisy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #f8f9fa 25%, transparent 25%), 
+                linear-gradient(-45deg, #f8f9fa 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #f8f9fa 75%), 
+                linear-gradient(-45deg, transparent 75%, #f8f9fa 75%);
+    background-size: 4px 4px;
+    background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+    opacity: 0.3;
+    z-index: 1;
+}
