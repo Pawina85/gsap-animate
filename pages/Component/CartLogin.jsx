@@ -1,4 +1,4 @@
-    import { gsap } from 'gsap';
+import { gsap } from 'gsap';
 import { useEffect, useRef, useState } from 'react';
 import { TiShoppingCart } from "react-icons/ti";
 import { CartLogin as cartData } from "../../constants/index";

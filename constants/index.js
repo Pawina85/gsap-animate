@@ -50,4 +50,19 @@ const gallerylist = [
     }
 ];
 
-export { navLinks, gallerylist };
+const CartLogin = [
+    {
+        id: "PRICE",
+        title: "PRICE",
+    },
+    {
+        id: "QTY",
+        title: "QTY",
+    },
+    {
+        id: "TOTAL",
+        title: "TOTAL",
+    },
+];
+
+export { navLinks, gallerylist, CartLogin };
