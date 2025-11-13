@@ -1,31 +1,34 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
+    if (typeof window !== 'undefined') {
+      import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+        gsap.registerPlugin(ScrollTrigger);
+        
+        const el = sectionRef.current;
+        if (!el) return;
 
-    gsap.fromTo(
-      el.querySelectorAll(".fade-up"),
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-        },
-      }
-    );
+        gsap.fromTo(
+          el.querySelectorAll(".fade-up"),
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+            },
+          }
+        );
+      });
+    }
   }, []);
 
   return (

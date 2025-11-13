@@ -1,32 +1,35 @@
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 import { navLinks } from "../../constants/index";
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
     const navRef = useRef(null);
 
     useEffect(() => {
-        gsap.to(navRef.current, {
-            backgroundColor: '#F9F9F6#F8FAF6',
-            backdropFilter: 'blur(10px)',
-            duration: 0.3,
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: 'body',
-                start: 'top -50px',
-                end: 'top -51px',
-                toggleActions: 'play none none reverse'
-            }
-        });
+        // Dynamically import ScrollTrigger only on client side
+        if (typeof window !== 'undefined') {
+            import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+                gsap.registerPlugin(ScrollTrigger);
+                
+                gsap.to(navRef.current, {
+                    backgroundColor: '#F9F9F6#F8FAF6',
+                    backdropFilter: 'blur(10px)',
+                    duration: 0.3,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: 'body',
+                        start: 'top -50px',
+                        end: 'top -51px',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
 
-        // Cleanup function
-        return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-        };
+                // Cleanup function stored for useEffect return
+                return () => {
+                    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+                };
+            });
+        }
     }, []);
     return (
         <nav ref={navRef} style={{

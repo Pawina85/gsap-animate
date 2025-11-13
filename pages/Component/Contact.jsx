@@ -1,8 +1,5 @@
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef, useState } from 'react';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const containerRef = useRef(null);
@@ -20,14 +17,18 @@ export default function Contact() {
   const [submitMessage, setSubmitMessage] = useState('');
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Title animation
-      gsap.fromTo(titleRef.current, 
-        { 
-          opacity: 0, 
-          y: 50 
-        },
-        {
+    if (typeof window !== 'undefined') {
+      import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+        gsap.registerPlugin(ScrollTrigger);
+        
+        const ctx = gsap.context(() => {
+          // Title animation
+          gsap.fromTo(titleRef.current, 
+            { 
+              opacity: 0, 
+              y: 50 
+            },
+            {
           opacity: 1,
           y: 0,
           duration: 1,
@@ -82,9 +83,11 @@ export default function Contact() {
           }
         }
       );
-    }, containerRef);
+        }, containerRef);
 
-    return () => ctx.revert();
+        return () => ctx.revert();
+      });
+    }
   }, []);
 
   const handleInputChange = (e) => {
